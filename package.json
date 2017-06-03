@@ -1,7 +1,7 @@
 {
   "name": "wethr",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Command line weather tool",
   "main": "wethr.js",
   "scripts": {
     "lint": "standard --fix --verbose | snazzy",
@@ -10,7 +10,7 @@
   "bin": {
     "wethr": "wethr.js"
   },
-  "keywords": [],
+  "keywords": ["command line", "weather", "cli", "terminal"],
   "author": "Hrvoje Simic <hrvoje@twobucks.co>",
   "license": "MIT",
   "dependencies": {
