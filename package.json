@@ -2,11 +2,24 @@
   "name": "wethr",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "wethr.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard --fix --verbose | snazzy",
+    "test": "npm run lint && ava test/*"
+  },
+  "bin": {
+    "wethr": "wethr.js"
   },
   "keywords": [],
   "author": "Hrvoje Simic <hrvoje@twobucks.co>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "got": "^7.0.0",
+    "ora": "^1.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
+  }
 }
