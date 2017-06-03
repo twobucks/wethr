@@ -2,6 +2,8 @@
 
 Command line weather tool.
 
+![](/demo.gif)
+
 ## Installation
 
 ```
