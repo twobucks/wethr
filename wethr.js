@@ -13,7 +13,7 @@ if (args[0] === '--imperial') {
 
 const getEmoji = require('./get-emoji.js')
 
-const spinner = ora('Loading location').start()
+const spinner = ora('Detecting your location').start()
 got('http://ip-api.com/json').then(response => {
   return JSON.parse(response.body).city
 }).then(city => {
