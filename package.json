@@ -1,6 +1,6 @@
 {
   "name": "wethr",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Command line weather tool",
   "main": "wethr.js",
   "scripts": {
