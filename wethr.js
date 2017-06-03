@@ -15,13 +15,14 @@ const getEmoji = require('./get-emoji.js')
 
 const spinner = ora('Detecting your location').start()
 got('http://ip-api.com/json').then(response => {
-  return JSON.parse(response.body).city
-}).then(city => {
+  const body = JSON.parse(response.body)
+  return [body.city, body.countryCode]
+}).then(([city, country]) => {
   spinner.color = 'yellow'
   spinner.text = 'Loading weather'
 
   const units = isMetric ? 'metric' : 'imperial'
-  const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=${units}`
+  const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=${units}`
 
   got(weatherURL).then(response => {
     spinner.stop()
@@ -31,7 +32,7 @@ got('http://ip-api.com/json').then(response => {
     const units = isMetric ? 'C' : 'F'
     const emoji = getEmoji(body.weather[0].description)
 
-    console.log(`${city}: ${temperature}${units} ${emoji}`)
+    console.log(`${city}, ${country}: ${temperature}${units} ${emoji}`)
   }).catch(error => {
     console.log('Error talking with http://api.openweathermap.org/.')
     console.log(`Try running:\n\n $ curl ${weatherURL}\n\n`)
