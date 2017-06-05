@@ -16,9 +16,9 @@ if (args[0] === '--imperial') {
 const spinner = ora('Detecting your location').start()
 
 function getLocation () {
-  return got('http://ipinfo.io/json').then(response => {
+  return got('http://ip-api.com/json').then(response => {
     const body = JSON.parse(response.body)
-    return [body.city, body.country]
+    return [body.city, body.countryCode]
   })
   .catch(error => {
     spinner.stop()
