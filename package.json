@@ -19,6 +19,7 @@
   "author": "Hrvoje Simic <hrvoje@twobucks.co>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^1.1.3",
     "got": "^7.0.0",
     "ora": "^1.2.0"
   },

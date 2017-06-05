@@ -2,6 +2,7 @@
 const got = require('got')
 const ora = require('ora')
 const getEmoji = require('./get-emoji.js')
+const chalk = require('chalk')
 
 const API_KEY = '315bfb21a64943c67a92e2da0022fdbe'
 
@@ -22,8 +23,8 @@ function getLocation () {
   .catch(error => {
     spinner.stop()
 
-    console.log('Error talking with http://ip-api.com/.')
-    console.log('Try running:\n\n $ curl http://ip-api.com/json\n\n')
+    console.log(chalk.red('Error talking with http://ip-api.com/.'))
+    console.log(chalk.red('Try running:\n\n $ curl http://ip-api.com/json\n\n'))
     console.log(error)
   })
 }
@@ -47,8 +48,8 @@ function getTemperature ([city, country]) {
   }).catch(error => {
     spinner.stop()
 
-    console.log('Error talking with http://api.openweathermap.org/.')
-    console.log(`Try running:\n\n $ curl ${weatherURL}\n\n`)
+    console.log(chalk.red('Error talking with http://api.openweathermap.org/.'))
+    console.log(chalk.red(`Try running:\n\n $ curl ${weatherURL}\n\n`))
     console.log(error)
   })
 }
