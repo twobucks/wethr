@@ -29,7 +29,7 @@ function getLocation () {
   })
 }
 
-function getTemperature ({ lat, lon, city, country}) {
+function getTemperature ({ lat, lon, city, country }) {
   spinner.color = 'yellow'
   spinner.text = 'Loading weather'
 
