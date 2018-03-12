@@ -20,13 +20,13 @@ function getLocation () {
     const body = JSON.parse(response.body)
     return body
   })
-  .catch(error => {
-    spinner.stop()
+    .catch(error => {
+      spinner.stop()
 
-    console.log(chalk.red('Error talking with http://ip-api.com/.'))
-    console.log(chalk.red('Try running:\n\n $ curl http://ip-api.com/json\n\n'))
-    console.log(error)
-  })
+      console.log(chalk.red('Error talking with http://ip-api.com/.'))
+      console.log(chalk.red('Try running:\n\n $ curl http://ip-api.com/json\n\n'))
+      console.log(error)
+    })
 }
 
 function getTemperature ({ lat, lon, city, country }) {
