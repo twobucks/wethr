@@ -19,13 +19,13 @@
   "author": "Hrvoje Simic <hrvoje@twobucks.co>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.3.2",
-    "got": "^8.3.0",
-    "ora": "^2.0.0"
+    "chalk": "^2.4.1",
+    "got": "^9.2.2",
+    "ora": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "snazzy": "^7.0.0",
-    "standard": "^11.0.0"
+    "snazzy": "^8.0.0",
+    "standard": "^12.0.1"
   }
 }
