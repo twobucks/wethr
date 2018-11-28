@@ -1,0 +1,23 @@
+name: wethr
+version: git
+summary: Command line weather tool.
+description: |
+  Get current weather:-
+    $ wethr
+  Get current weather in metric units
+    $ wethr --metric
+  Get current weather in imperial units
+    $ wethr --imperial
+grade: stable
+confinement: strict
+
+apps:
+  wethr:
+    command: wethr
+    plugs:
+      - network
+
+parts:
+  wethr:
+    plugin: nodejs
+    source: .
