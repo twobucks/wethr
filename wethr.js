@@ -18,23 +18,23 @@ const spinner = ora('Detecting your location').start()
 function getLocation () {
   return got('http://ip-api.com/json').then(response => {
     const body = JSON.parse(response.body)
-    return [body.city, body.countryCode]
+    return body
   })
-  .catch(error => {
-    spinner.stop()
+    .catch(error => {
+      spinner.stop()
 
-    console.log(chalk.red('Error talking with http://ip-api.com/.'))
-    console.log(chalk.red('Try running:\n\n $ curl http://ip-api.com/json\n\n'))
-    console.log(error)
-  })
+      console.log(chalk.red('Error talking with http://ip-api.com/.'))
+      console.log(chalk.red('Try running:\n\n $ curl http://ip-api.com/json\n\n'))
+      console.log(error)
+    })
 }
 
-function getTemperature ([city, country]) {
+function getTemperature ({ lat, lon, city, country }) {
   spinner.color = 'yellow'
   spinner.text = 'Loading weather'
 
   const units = isMetric ? 'metric' : 'imperial'
-  const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=${units}`
+  const weatherURL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=${units}`
 
   return got(weatherURL).then(response => {
     spinner.stop()
