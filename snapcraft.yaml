@@ -9,14 +9,16 @@ description: |
   Get current weather in imperial units
     $ wethr --imperial
 
-confinement: devmode
-base: core18
-
-parts:
-  wethr:
-    plugin: nodejs
-    source: .
+confinement: strict
+base: core20
 
 apps:
   wethr:
-    command: wethr
+    command: bin/wethr
+
+parts:
+  wethr:
+    plugin: npm
+    npm-node-version: 14.16.1
+    source: .
+
